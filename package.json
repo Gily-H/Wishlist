@@ -1,0 +1,15 @@
+{
+  "name": "wishlist",
+  "version": "1.0.0",
+  "description": "Modifiable list of wanted items",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gilman Huang",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  }
+}
