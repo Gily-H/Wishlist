@@ -5,11 +5,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gilman Huang",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.5"
   }
 }
