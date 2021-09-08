@@ -9,7 +9,8 @@ The following web application utilizes the following technologies
 - Node.js
 - Bootstrap
 - MongoDB
-- ejs
+- Mongoose
+- Axios
 
 #### Author
 
