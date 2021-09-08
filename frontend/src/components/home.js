@@ -10,8 +10,8 @@ function Home() {
         an account for a quick temporary list.
       </h4>
 
-      <div class="d-grid gap-2 col-2 mx-auto">
-        <button class="btn btn-warning" type="button">
+      <div className="d-grid gap-2 col-2 mx-auto">
+        <button className="btn btn-warning" type="button">
           Create a new Wishlist
         </button>
       </div>

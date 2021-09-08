@@ -12,7 +12,7 @@ import Wishlist from "./components/wishlist";
 
 function App() {
   return (
-    <div class="d-flex flex-column min-vh-100">
+    <div className="d-flex flex-column min-vh-100">
       <Navbar />
       <div className="container mt-3">
         <Switch>

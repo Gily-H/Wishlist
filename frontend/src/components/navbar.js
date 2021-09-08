@@ -3,45 +3,45 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <header class="p-3 bg-dark text-white">
-      <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <header className="p-3 bg-dark text-white">
+      <div className="container">
+        <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a
             href="/"
-            class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
+            className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
               fill="orange"
-              class="bi bi-stars"
+              className="bi bi-stars"
               viewBox="0 0 16 16"
             >
               <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z" />
             </svg>
           </a>
-          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li>
-              <Link to={"/"} class="nav-link px-2 text-white">
+              <Link to={"/"} className="nav-link px-2 text-white">
                 Home
               </Link>
             </li>
             <li>
-              <Link to={"/wishlist"} class="nav-link px-2 text-white">
+              <Link to={"/wishlist"} className="nav-link px-2 text-white">
                 Wishlists
               </Link>
             </li>
           </ul>
 
-          <div class="text-end">
+          <div className="text-end">
             <Link to={"/login"}>
-              <button type="button" class="btn btn-outline-light me-2">
+              <button type="button" className="btn btn-outline-light me-2">
                 Login
               </button>
             </Link>
             <Link to={"/signup"}>
-              <button type="button" class="btn btn-warning">
+              <button type="button" className="btn btn-warning">
                 Sign up
               </button>
             </Link>
