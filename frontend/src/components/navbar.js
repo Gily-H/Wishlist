@@ -28,7 +28,7 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link to={"/wishlist"} className="nav-link px-2 text-white">
+              <Link to={"/wishlist-dashboard"} className="nav-link px-2 text-white">
                 Wishlists
               </Link>
             </li>
