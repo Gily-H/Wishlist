@@ -1,18 +1,23 @@
 import express from "express";
-import Item from "../models/item.model.js";
+import Item from "../models/itemModel.js";
 
 const wishlistRouter = express.Router();
 
+// called when localhost:####/wishlist
 wishlistRouter.get("/", (req, res) => {
+  
+  // retrieve list of data entries
   Item.find()
     .then((items) => {
-      res.json(items);
       res.send(items);
     })
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+// save to db
 wishlistRouter.post("/add", (req, res) => {
+
+  // extract data from request body sent by form
   const itemName = req.body.name;
   const itemDescription = req.body.description;
   const itemPrice = req.body.price;
@@ -25,6 +30,7 @@ wishlistRouter.post("/add", (req, res) => {
 
   console.log(newItem);
 
+  // 
   newItem
     .save()
     .then(() => res.json("New item added!"))

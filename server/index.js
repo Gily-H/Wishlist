@@ -6,7 +6,6 @@ dotenv.config(); // should be in the root folder where used
 
 const port = process.env.PORT || 5000;
 const uri = process.env.MDB_CONNECTION;
-console.log(uri);
 
 // connect to mongoDB using mongoose
 mongoose
