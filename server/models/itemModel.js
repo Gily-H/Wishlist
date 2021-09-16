@@ -18,4 +18,5 @@ const itemSchema = mongoose.Schema({
 
 // name of Model must match the name of the Collection in the DB
 // Collection = items  - (note the collection name is pluralized)
-export default mongoose.model("Item", itemSchema);
+const Item = mongoose.model("Item", itemSchema);
+export default Item;

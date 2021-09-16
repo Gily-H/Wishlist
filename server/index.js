@@ -16,4 +16,7 @@ mongoose
       console.log(`server is currently listening on port ${port}`);
     });
   })
-  .catch((err) => console.log(err));
+  .catch((err) => {
+    console.log(err);
+    process.exit(1);
+  });
