@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// objectid can be accessed with dot notation 'object._id'
 const wishlistSchema = mongoose.Schema({
   title: {
     type: String,
@@ -13,6 +14,12 @@ const wishlistSchema = mongoose.Schema({
     trim: true,
     minlength: 5,
   },
+  items: [
+    {
+      type: mongoose.Schema.Types.ObjectId, // collections must be under same db
+      ref: "Item",
+    },
+  ],
 });
 
 const Wishlist = mongoose.model("Wishlist", wishlistSchema);
