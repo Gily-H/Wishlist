@@ -5,6 +5,7 @@ const registerSchema = mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+    trim: true,
     minLength: [5, "user name should be at least 5 characters long"],
   },
   email: {

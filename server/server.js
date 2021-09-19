@@ -16,6 +16,6 @@ app.use(express.json()); // REMEMBER .json() requires parenthesis
 app.use("/", homeRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
-app.use("/wishlist", wishlistRouter);
+app.use("/wishlists", wishlistRouter);
 
 export default app;
