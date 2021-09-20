@@ -11,8 +11,6 @@ import Signup from "./components/signup";
 import Wishlist from "./components/wishlist";
 import WishlistDashboard from "./components/wishlistDashboard";
 
-async;
-
 function App() {
   return (
     <div className="d-flex flex-column min-vh-100">
