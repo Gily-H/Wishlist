@@ -3,13 +3,13 @@ import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // components
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
+import Navbar from "./components/partials/navbar";
+import Footer from "./components//partials/footer";
 import Home from "./components/home";
-import Login from "./components/login";
-import Signup from "./components/signup";
-import Wishlist from "./components/wishlist";
-import WishlistDashboard from "./components/wishlistDashboard";
+import Login from "./components/user/login";
+import Signup from "./components/user/signup";
+import Wishlist from "./components/wishlist/wishlist";
+import WishlistDashboard from "./components/wishlist/wishlistDashboard";
 
 function App() {
   return (
