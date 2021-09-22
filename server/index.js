@@ -10,13 +10,10 @@ const uri = process.env.MDB_CONNECTION;
 // connect to mongoDB using mongoose
 mongoose
   .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log("Connection to database established");
-    app.listen(port, () => {
-      console.log(`server is currently listening on port ${port}`);
-    });
-  })
+  .then(() => app.listen(port, () => console.log(`server is listening on port ${port}`)))
   .catch((err) => {
     console.log(err);
     process.exit(1);
   });
+
+// mongoose.set("useFindAndModify", false);
