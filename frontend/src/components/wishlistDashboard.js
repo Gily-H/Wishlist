@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Wishlist = ({ name, description }) => {
+const WishlistPreview = ({ name, description }) => {
   return (
     <a href="#" className="list-group-item list-group-item-action" aria-current="true">
       <div className="d-flex w-100 justify-content-between">
@@ -15,7 +15,6 @@ const Wishlist = ({ name, description }) => {
 };
 
 function WishlistDashboard() {
-
   return (
     <div>
       <h2>Wishlists</h2>
@@ -29,8 +28,8 @@ function WishlistDashboard() {
 
       <div className="container">
         <div className="list-group">
-          <Wishlist name="Wishlist 1" description="First wishlist" />
-          <Wishlist name="Wishlist 2" description="Second wishlist" />
+          <WishlistPreview name="Wishlist 1" description="First wishlist" />
+          <WishlistPreview name="Wishlist 2" description="Second wishlist" />
         </div>
       </div>
     </div>

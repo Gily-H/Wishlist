@@ -31,10 +31,10 @@ const NavLink = ({ text, link }) => {
   );
 };
 
-const NavButton = ({ text, link }) => {
+const NavButton = ({ text, link, type }) => {
   return (
-    <Link to={"/login"}>
-      <button type="button" className="btn btn-outline-light me-2">
+    <Link to={link}>
+      <button type="button" className={type}>
         {text}
       </button>
     </Link>
@@ -48,12 +48,13 @@ function Navbar() {
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <Logo />
           <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <NavLink text="home" link="/" />
+            <NavLink text="Home" link="/" />
             <NavLink text="Wishlists" link="/wishlist-dashboard" />
           </ul>
+
           <div className="text-end">
-            <NavButton text="Login" link="/login" />
-            <NavButton text="Sign up" link="/signup" />
+            <NavButton text="Login" link="/login" type="btn btn-outline-light me-2" />
+            <NavButton text="Sign up" link="/signup" type="btn btn-warning" />
           </div>
         </div>
       </div>
