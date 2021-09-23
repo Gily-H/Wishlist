@@ -2,6 +2,6 @@ import axios from "axios";
 
 const url = "http://localhost:5000/api/wishlists";
 
-const fetchWishlistsHome = () => axios.get(url);
+// add url for display single wishlist by id
 
-export default fetchWishlistsHome;
+export const fetchWishlists = () => axios.get(url);
