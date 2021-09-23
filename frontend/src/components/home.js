@@ -3,11 +3,11 @@ import React from "react";
 function Home() {
   return (
     <div>
-      <h2>This is the home page</h2>
+      <h2>Welcome to Wishlist!</h2>
       <h4>
-        Welcome to Wishlist! Create customized wishlists through a simple UI by dragging and dropping URLs to the
-        desired items into your own personal lists. Create and account to save your lists or create a wish list without
-        an account for a quick temporary list.
+        Create customized wishlists through a simple UI by dragging and dropping URLs to
+        the desired items into your own personal lists. Create an account to save your
+        lists or create a wishlist without an account for a quick temporary list.
       </h4>
 
       <div className="d-grid gap-2 col-2 mx-auto">

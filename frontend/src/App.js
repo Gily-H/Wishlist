@@ -9,7 +9,7 @@ import Footer from "./components//partials/footer";
 import Home from "./components/home";
 import Login from "./components/user/login";
 import Signup from "./components/user/signup";
-import Wishlist from "./components/wishlist/wishlist";
+import WishlistForm from "./components/wishlist/wishlistForm";
 import WishlistDashboard from "./components/wishlist/wishlistDashboard";
 
 import { getWishlists } from "./actions/wishlists";
@@ -22,13 +22,14 @@ function App() {
     dispatch(getWishlists());
   }, [dispatch]);
 
+  // component to be displayed based on current url route
   return (
     <div className="d-flex flex-column min-vh-100">
       <Navbar />
       <div className="container mt-3">
         <Switch>
           <Route exact path={["/", "/home"]} component={Home} />
-          <Route exact path={["/wishlist-add"]} component={Wishlist} />
+          <Route exact path={["/wishlist-add"]} component={WishlistForm} />
           <Route exact path={["/wishlist-dashboard"]} component={WishlistDashboard} />
           <Route exact path={["/login"]} component={Login} />
           <Route exact path={["/signup"]} component={Signup} />

@@ -7,12 +7,13 @@ const WishlistPreviews = () => {
   const wishlists = useSelector((state) => state.wishlists);
   console.log(wishlists);
 
+  // map each wishlist into separate row
   return (
     <>
       {wishlists.map((wishlist) => (
         <a
           key={wishlist._id}
-          href="#"
+          href="#" // redirect to specific wishlist
           className="list-group-item list-group-item-action"
           aria-current="true"
         >
@@ -48,5 +49,6 @@ function WishlistDashboard() {
     </div>
   );
 }
+
 
 export default WishlistDashboard;
