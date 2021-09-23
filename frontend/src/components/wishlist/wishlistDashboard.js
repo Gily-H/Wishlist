@@ -1,16 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const WishlistPreview = ({ name, description }) => {
+const WishlistPreviews = () => {
+  // retrieves wishlists payload data from the global state store
+  const wishlists = useSelector((state) => state.wishlists);
+  console.log(wishlists);
+
   return (
-    <a href="#" className="list-group-item list-group-item-action" aria-current="true">
-      <div className="d-flex w-100 justify-content-between">
-        <h5 className="mb-1">{name}</h5>
-        <button>Delete</button>
-      </div>
-      <p className="mb-1">{description}</p>
-      <small>And some small print.</small>
-    </a>
+    <>
+      {wishlists.map((wishlist) => (
+        <a
+          key={wishlist._id}
+          href="#"
+          className="list-group-item list-group-item-action"
+          aria-current="true"
+        >
+          <div className="d-flex w-100 justify-content-between">
+            <h5 className="mb-1">{wishlist.title}</h5>
+          </div>
+          <p className="mb-1">{wishlist.description}</p>
+          <small>And some small print.</small>
+          <button>Delete</button>
+        </a>
+      ))}
+    </>
   );
 };
 
@@ -28,8 +42,7 @@ function WishlistDashboard() {
 
       <div className="container">
         <div className="list-group">
-          <WishlistPreview name="Wishlist 1" description="First wishlist" />
-          <WishlistPreview name="Wishlist 2" description="Second wishlist" />
+          <WishlistPreviews />
         </div>
       </div>
     </div>
