@@ -1,6 +1,7 @@
-import React from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Switch, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 // components
 import Navbar from "./components/partials/navbar";
@@ -11,7 +12,16 @@ import Signup from "./components/user/signup";
 import Wishlist from "./components/wishlist/wishlist";
 import WishlistDashboard from "./components/wishlist/wishlistDashboard";
 
+import { getWishlists } from "./actions/wishlists";
+
 function App() {
+  const dispatch = useDispatch();
+
+  // update wishlists dashboard after a dispatch
+  useEffect(() => {
+    dispatch(getWishlists());
+  }, [dispatch]);
+
   return (
     <div className="d-flex flex-column min-vh-100">
       <Navbar />
