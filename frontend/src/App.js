@@ -2,7 +2,6 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route } from "react-router-dom";
 
-
 // components
 import Navbar from "./components/partials/navbar";
 import Footer from "./components//partials/footer";
@@ -13,7 +12,6 @@ import WishlistForm from "./components/wishlist/wishlistForm";
 import WishlistDashboard from "./components/wishlist/wishlistDashboard";
 
 function App() {
-
   // component to be displayed based on current url route
   return (
     <div className="d-flex flex-column min-vh-100">
