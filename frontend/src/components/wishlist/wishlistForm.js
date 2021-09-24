@@ -69,7 +69,7 @@ const Wishlist = () => {
   }
 
   return (
-    <>
+    <> 
       <h3>Create A Wishlist</h3>
       <div className="wishlist-add-container">
         <form onSubmit={addWishlist} className="wishlist-form">
