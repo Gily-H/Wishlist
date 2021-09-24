@@ -1,13 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 const WishlistPreviews = () => {
-  // retrieves wishlists payload data from the global state store
-  const wishlists = useSelector((state) => state.wishlists);
-  console.log(wishlists);
+  const wishlist = []; // fetch wishlists from database
 
-  // map each wishlist into separate row
   return (
     <>
       {wishlists.map((wishlist) => (

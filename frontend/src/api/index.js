@@ -1,7 +1,13 @@
 import axios from "axios";
 
-const url = "http://localhost:5000/api/wishlists";
+// all requests will be prefixed with this base URL
+const baseUrl = "http://localhost:5000/api/wishlists";
 
-// add url for display single wishlist by id
+const api = axios.create({
+  baseURL: baseUrl,
+  headers: {
+    "Content-type": "application/json",
+  },
+});
 
-export const fetchWishlists = () => axios.get(url);
+export default api;
