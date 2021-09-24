@@ -12,7 +12,7 @@ const WishlistPreviews = () => {
     <>
       {wishlists.map((wishlist) => (
         <a
-          key={wishlist._id}
+          key={wishlist._id.toString()}
           href="#" // redirect to specific wishlist
           className="list-group-item list-group-item-action"
           aria-current="true"
@@ -49,6 +49,5 @@ function WishlistDashboard() {
     </div>
   );
 }
-
 
 export default WishlistDashboard;
