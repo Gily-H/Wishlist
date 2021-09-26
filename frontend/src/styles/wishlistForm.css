@@ -1,20 +1,20 @@
 .wishlist-add-container {
-  margin: auto;
-  max-width: 40%;
-  padding: 10px;
+	margin: auto;
+	max-width: 40%;
+	padding: 10px;
 }
 
 h3 {
-  text-align: center;
+	text-align: center;
 }
 
 .wishlist-add-input {
-  display: inline-block;
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0px;
+	display: inline-block;
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0px;
 }
 
 textarea {
-  resize: none;
+	resize: none;
 }

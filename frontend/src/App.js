@@ -12,22 +12,22 @@ import WishlistForm from "./components/wishlist/wishlistForm";
 import WishlistDashboard from "./components/wishlist/wishlistDashboard";
 
 function App() {
-  // component to be displayed based on current url route
-  return (
-    <div className="d-flex flex-column min-vh-100">
-      <Navbar />
-      <div className="container mt-3">
-        <Switch>
-          <Route exact path={["/", "/home"]} component={Home} />
-          <Route exact path={["/wishlist-add"]} component={WishlistForm} />
-          <Route exact path={["/wishlist-dashboard"]} component={WishlistDashboard} />
-          <Route exact path={["/login"]} component={Login} />
-          <Route exact path={["/signup"]} component={Signup} />
-        </Switch>
-      </div>
-      <Footer />
-    </div>
-  );
+	// component to be displayed based on current url route
+	return (
+		<div className="d-flex flex-column min-vh-100">
+			<Navbar />
+			<div className="container mt-3">
+				<Switch>
+					<Route exact path={["/", "/home"]} component={Home} />
+					<Route exact path={["/wishlist-add"]} component={WishlistForm} />
+					<Route exact path={["/wishlist-dashboard"]} component={WishlistDashboard} />
+					<Route exact path={["/login"]} component={Login} />
+					<Route exact path={["/signup"]} component={Signup} />
+				</Switch>
+			</div>
+			<Footer />
+		</div>
+	);
 }
 
 export default App;
