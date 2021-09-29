@@ -21,7 +21,7 @@ const addItemToWishlist = (req, res) => {
 			res.json("Successfully updated wishlist items");
 		})
 		.catch((err) => console.log(err));
-
+		
 	newItem
 		.save()
 		.then(() => res.json("New item added!"))
