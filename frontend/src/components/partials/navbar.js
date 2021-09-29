@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// app logo
 const Logo = () => {
 	return (
 		<a href="/" className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -17,6 +18,7 @@ const Logo = () => {
 	);
 };
 
+// component for navbar redirects
 const NavLink = ({ text, link }) => {
 	return (
 		<li>
@@ -27,6 +29,7 @@ const NavLink = ({ text, link }) => {
 	);
 };
 
+// component for login and signup button
 const NavButton = ({ text, link, type }) => {
 	return (
 		<Link to={link}>
