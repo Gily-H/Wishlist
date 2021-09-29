@@ -1,8 +1,15 @@
 import React, { useState } from "react";
-import "../..styles/wishlistForm.css";
+import WishlistDataService from "../../services/wishlistService.js";
+import "../../styles/wishlistForm.css";
 
-// title component takes the title field and a handler
-const WishlistTitle = ({ wishlistField, updateField }) => {
+/*
+	Web page with form to allow user to enter info for a new Wishlist
+	Title:
+	Description:
+*/
+
+// title input field component
+const WishlistTitle = ({ field, titleHandler }) => {
 	return (
 		<label className="wishlist-add">
 			Wishlist Name:
@@ -10,15 +17,14 @@ const WishlistTitle = ({ wishlistField, updateField }) => {
 			<input
 				className="wishlist-add-input"
 				type="text"
-				name="title"
-				wishlistField={wishlistField}
-				onChange={updateField}></input>
+				value={field}
+				onChange={titleHandler}></input>
 		</label>
 	);
 };
 
-// description component takes the description field and handler
-const WishlistDescription = ({ wishlistField, updateField }) => {
+// description input area component
+const WishlistDescription = ({ field, descriptionHandler }) => {
 	return (
 		<label className="wishlist-add">
 			Wishlist Description:
@@ -26,13 +32,13 @@ const WishlistDescription = ({ wishlistField, updateField }) => {
 				className="wishlist-add-input"
 				rows="4"
 				cols="40"
-				name="description"
-				value={wishlistField}
-				onChange={updateField}></textarea>
+				value={field}
+				onChange={descriptionHandler}></textarea>
 		</label>
 	);
 };
 
+// form submit button component
 const SubmitButton = () => {
 	return (
 		<button className="add-Button" type="submit">
@@ -41,39 +47,52 @@ const SubmitButton = () => {
 	);
 };
 
-const Wishlist = () => {
-	// object state - does not require items array
-	const [wishlistData, setWishlistData] = useState({
-		title: "",
-		description: "",
-	});
+// The main form component
+// contains title input, description input, and submit button
+const WishlistForm = () => {
+	// wishlist properties, array of items not required for wishlist creation
+	const [title, setTitle] = useState("");
+	const [description, setDescription] = useState("");
 
-	const updateWishlistField = (event) => {
-		console.log(event.target.name); // should match component name attribute
-		console.log(event.target.value); // should match component value attribute
-
-		// set the wishlistData state with new object
-		// copy of old object plus new user value (does not mutate state)
-		setWishlistData({
-			...wishlistData,
-			[event.target.name]: event.target.value,
-		});
+	// handler for title state
+	const updateTitle = (event) => {
+		// console.log(event.target.value); // title text inputted by user
+		setTitle(event.target.value); // the updated text will be visible to user
 	};
 
-	const addWishlist = (event) => {
+	// handler for description state
+	const updateDescription = (event) => {
+		// console.log(event.target.value); // description text inputted by user
+		setDescription(event.target.value);
+	};
+
+	// handler for form submit, POST request to backend server
+	const saveWishlist = (event) => {
 		event.preventDefault(); // prevent the default re-rendering on form submits
+
+		// wishlist object containing user-entered data
+		const wishlist = { title: title, description: description };
+
+		// service class method (parameter object must be converted to JSON as defined in axios instance)
+		WishlistDataService.postWishlist(JSON.stringify(wishlist))
+			.then((res) => {
+				console.log(res);
+				console.log("Successfully saved the new wishlist");
+			})
+			.catch((err) => console.log(err.message));
+
+		// clear form fields on submit
+		setTitle("");
+		setDescription("");
 	};
 
 	return (
 		<>
 			<h3>Create A Wishlist</h3>
 			<div className="wishlist-add-container">
-				<form onSubmit={addWishlist} className="wishlist-form">
-					<WishlistTitle wishlistField={wishlistData.title} updateField={updateWishlistField} />
-					<WishlistDescription
-						wishlistField={wishlistData.description}
-						updateField={updateWishlistField}
-					/>
+				<form onSubmit={saveWishlist} className="wishlist-form">
+					<WishlistTitle field={title} titleHandler={updateTitle} />
+					<WishlistDescription field={description} descriptionHandler={updateDescription} />
 					<SubmitButton />
 				</form>
 			</div>
@@ -81,4 +100,4 @@ const Wishlist = () => {
 	);
 };
 
-export default Wishlist;
+export default WishlistForm;
