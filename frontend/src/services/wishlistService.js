@@ -1,8 +1,9 @@
-import api from "../api/";
+import api from "../api/";   // uses the axios instance
 
 // corresponds to routes setup in the backend server
 class WishlistDataService {
-	// get wishlists
+
+	// get all wishlists
 	getWishlists() {
 		return api.get("/");
 	}
@@ -13,14 +14,14 @@ class WishlistDataService {
 	}
 
 	// post new wishlist
-	postWishlist() {
-		return api.post("/add-wishlist");
+	postWishlist(wishlist) {
+		return api.post("/add-wishlist", wishlist);
 	}
 
 	// post new item
-	postItem(id) {
-		return api.post(`/${id}/add-item`);
+	postItem(id, item) {
+		return api.post(`/${id}/add-item`, item);
 	}
 }
 
-export default new WishlistDataService();
+export default new WishlistDataService(); // possibly change to single instance reduce object creation
