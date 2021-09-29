@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 // components
 import Navbar from "./components/partials/navbar";
@@ -12,32 +11,23 @@ import Signup from "./components/user/signup";
 import WishlistForm from "./components/wishlist/wishlistForm";
 import WishlistDashboard from "./components/wishlist/wishlistDashboard";
 
-import { getWishlists } from "./actions/wishlists";
-
 function App() {
-  const dispatch = useDispatch();
-
-  // update wishlists dashboard after a dispatch
-  useEffect(() => {
-    dispatch(getWishlists());
-  }, [dispatch]);
-
-  // component to be displayed based on current url route
-  return (
-    <div className="d-flex flex-column min-vh-100">
-      <Navbar />
-      <div className="container mt-3">
-        <Switch>
-          <Route exact path={["/", "/home"]} component={Home} />
-          <Route exact path={["/wishlist-add"]} component={WishlistForm} />
-          <Route exact path={["/wishlist-dashboard"]} component={WishlistDashboard} />
-          <Route exact path={["/login"]} component={Login} />
-          <Route exact path={["/signup"]} component={Signup} />
-        </Switch>
-      </div>
-      <Footer />
-    </div>
-  );
+	// component to be displayed based on current url route
+	return (
+		<div className="d-flex flex-column min-vh-100">
+			<Navbar />
+			<div className="container mt-3">
+				<Switch>
+					<Route exact path={["/", "/home"]} component={Home} />
+					<Route exact path={["/wishlist-add"]} component={WishlistForm} />
+					<Route exact path={["/wishlist-dashboard"]} component={WishlistDashboard} />
+					<Route exact path={["/login"]} component={Login} />
+					<Route exact path={["/signup"]} component={Signup} />
+				</Switch>
+			</div>
+			<Footer />
+		</div>
+	);
 }
 
 export default App;
