@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const WishlistPreviews = () => {
-	const wishlist = []; // fetch wishlists from database
+	const wishlists = []; // fetch wishlists from database
 	return (
 		<>
 			{wishlists.map((wishlist) => (
