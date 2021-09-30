@@ -4,8 +4,8 @@ import "../../styles/wishlistForm.css";
 
 /*
 	Web page with form to allow user to enter info for a new Wishlist
-	Title:
-	Description:
+	- Title:
+	- Description:
 */
 
 // title input field component

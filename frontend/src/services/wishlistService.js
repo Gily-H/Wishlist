@@ -1,8 +1,12 @@
-import api from "../api/";   // uses the axios instance
+import api from "../api/"; // uses the axios instance
+
+/*
+	Service class that contains all http requests related to wishlists 
+	and wishlist items
+*/
 
 // corresponds to routes setup in the backend server
 class WishlistDataService {
-
 	// get all wishlists
 	getWishlists() {
 		return api.get("/");
