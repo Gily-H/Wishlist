@@ -53,7 +53,7 @@ function WishlistDashboard() {
 		WishlistDataService.getWishlists()
 			.then((res) => {
 				// console.log(res.data);
-				setWishlists(res.data); // data holds array of wishlists
+				setWishlists(res.data); // response.data holds array of wishlists
 			})
 			.catch((err) => console.log(err.message));
 	}, []);
