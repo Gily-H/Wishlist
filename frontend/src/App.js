@@ -11,7 +11,7 @@ import Signup from "./components/user/signup";
 import WishlistForm from "./components/wishlist/wishlistForm";
 import WishlistDashboard from "./components/wishlist/wishlistDashboard";
 
-function App() {
+const App = () => {
 	// component to be displayed based on current url route
 	return (
 		<div className="d-flex flex-column min-vh-100">

@@ -54,7 +54,7 @@ const WishlistDashboard = () => {
 		// service class method to retrieve collection of wishlists from the database
 		WishlistDataService.getWishlists()
 			.then((res) => {
-				// console.log(res.data);
+					// console.log(res.data);
 				setWishlists(res.data); // response.data holds array of wishlists
 			})
 			.catch((err) => console.log(err.message));
