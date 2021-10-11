@@ -1,9 +1,9 @@
 import express from "express";
 import { addItemToWishlist, retrieveItemsList } from "../controllers/itemController.js";
 import {
-	retrieveAllWishlists,
-	retrieveWishlistById,
-	createNewWishlist,
+  retrieveAllWishlists,
+  retrieveWishlistById,
+  createNewWishlist,
 } from "../controllers/wishlistController.js";
 
 const wishlistRouter = express.Router();
