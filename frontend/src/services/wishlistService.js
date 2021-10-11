@@ -19,7 +19,7 @@ class WishlistDataService {
 
 	// post new wishlist
 	postWishlist(wishlist) {
-		return api.post("/add-wishlist", wishlist);
+		return api.post("/add-wishlist", wishlist); // send wishlist in request body
 	}
 
 	// post new item

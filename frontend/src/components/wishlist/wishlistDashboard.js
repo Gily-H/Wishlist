@@ -25,8 +25,8 @@ const Wishlist = ({ id, title, description }) => {
 	);
 };
 
-// preview wishlist entry component - title, description
-// contains single Wishlist
+// preview wishlist entry component 
+// maps each list to individual component
 const WishlistPreviews = ({ wishlists }) => {
 	// map each element in the collection to a separate wishlist
 	return (
