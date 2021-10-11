@@ -17,6 +17,10 @@ class WishlistDataService {
 		return api.get(`/${id}`);
 	}
 
+	getWishlistItems(id) {
+		return api.get(`/${id}/items`);
+	}
+
 	// post new wishlist
 	postWishlist(wishlist) {
 		return api.post("/add-wishlist", wishlist); // send wishlist in request body
