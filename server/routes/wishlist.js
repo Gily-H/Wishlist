@@ -1,5 +1,5 @@
 import express from "express";
-import { addItemToWishlist } from "../controllers/item.js";
+import { addItemToWishlist, retrieveItemsList } from "../controllers/itemController.js";
 import {
 	retrieveAllWishlists,
 	retrieveWishlistById,
@@ -10,6 +10,7 @@ const wishlistRouter = express.Router();
 
 wishlistRouter.get("/", retrieveAllWishlists);
 wishlistRouter.get("/:wishlistId", retrieveWishlistById);
+wishlistRouter.get("/:wishlistId/items", retrieveItemsList);
 wishlistRouter.post("/:wishlistId/add-item", addItemToWishlist);
 wishlistRouter.post("/add-wishlist", createNewWishlist);
 
