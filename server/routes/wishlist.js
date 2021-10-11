@@ -1,15 +1,15 @@
 import express from "express";
 import { addItemToWishlist } from "../controllers/item.js";
 import {
-	displayAllWishlists,
-	displayWishlistById,
+	retrieveAllWishlists,
+	retrieveWishlistById,
 	createNewWishlist,
-} from "../controllers/wishlist.js";
+} from "../controllers/wishlistController.js";
 
 const wishlistRouter = express.Router();
 
-wishlistRouter.get("/", displayAllWishlists);
-wishlistRouter.get("/:wishlistId", displayWishlistById);
+wishlistRouter.get("/", retrieveAllWishlists);
+wishlistRouter.get("/:wishlistId", retrieveWishlistById);
 wishlistRouter.post("/:wishlistId/add-item", addItemToWishlist);
 wishlistRouter.post("/add-wishlist", createNewWishlist);
 
