@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import WishlistDataService from "../../services/wishlistService.js";
 
 /*
-	Web page that displays a dashboard containing wishlists created by the user
+	Web page that displays a dashboard containing all wishlists created by the user
 	- Wishlist dashboard
 	- Create wishlist button that redirects to wishlist form
 */
@@ -25,7 +25,8 @@ const Wishlist = ({ id, title, description }) => {
 	);
 };
 
-// dashboard component to display a collection of wishlists
+// preview wishlist entry component - title, description
+// contains single Wishlist
 const WishlistPreviews = ({ wishlists }) => {
 	// map each element in the collection to a separate wishlist
 	return (
@@ -42,11 +43,12 @@ const WishlistPreviews = ({ wishlists }) => {
 	);
 };
 
-// page display component
-function WishlistDashboard() {
+// main display component
+// contains WishlistPreviews
+const WishlistDashboard = () => {
 	const [wishlists, setWishlists] = useState([]);
 
-	// useEffect prevents continuous rerendering when state changes
+	// useEffect with no dependency prevents continuous rerendering when state changes
 	// will only run on the first render of the page (empty dependency)
 	useEffect(() => {
 		// service class method to retrieve collection of wishlists from the database

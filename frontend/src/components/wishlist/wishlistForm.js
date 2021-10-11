@@ -56,13 +56,13 @@ const WishlistForm = () => {
 
 	// handler for title state
 	const updateTitle = (event) => {
-		// console.log(event.target.value); // title text inputted by user
-		setTitle(event.target.value); // the updated text will be visible to user
+			// console.log(event.target.value); // title text inputted by user
+		setTitle(event.target.value);
 	};
 
 	// handler for description state
 	const updateDescription = (event) => {
-		// console.log(event.target.value); // description text inputted by user
+			// console.log(event.target.value); // description text inputted by user
 		setDescription(event.target.value);
 	};
 
