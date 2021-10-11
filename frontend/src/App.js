@@ -8,6 +8,7 @@ import Footer from "./components//partials/footer";
 import Home from "./components/home";
 import Login from "./components/user/login";
 import Signup from "./components/user/signup";
+import WishlistItems from "./components/wishlist/wishlistItems";
 import WishlistForm from "./components/wishlist/wishlistForm";
 import WishlistDashboard from "./components/wishlist/wishlistDashboard";
 
@@ -21,6 +22,7 @@ const App = () => {
 					<Route exact path={["/", "/home"]} component={Home} />
 					<Route exact path={["/wishlist-add"]} component={WishlistForm} />
 					<Route exact path={["/wishlist-dashboard"]} component={WishlistDashboard} />
+					<Route exact path={["/wishlist/:wishlistId/items"]} component={WishlistItems} />
 					<Route exact path={["/login"]} component={Login} />
 					<Route exact path={["/signup"]} component={Signup} />
 				</Switch>
