@@ -29,7 +29,9 @@ https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 ``` 
 <br>
 
-3. Open two tabs or windows side-by-side on your preferred CLI <br>
+3. Open two CLIs side-by-side <br>
+
+![two-tab-terminal](https://user-images.githubusercontent.com/67421795/137938914-94154f8b-5c6f-48e6-a781-591d22c7958c.png)
 
 4. Navigate to the following directory in the project folder on one CLI tab
 
