@@ -56,30 +56,30 @@ const WishlistForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  // handler for title state
-  const updateTitle = (event) => {
+  // handler for wishlist title
+  const wishlistTitleHandler = (event) => {
     // console.log(event.target.value); // title text inputted by user
     setTitle(event.target.value);
   };
 
-  // handler for description state
-  const updateDescription = (event) => {
+  // handler for wishlist description
+  const wishlistDescriptionHandler = (event) => {
     // console.log(event.target.value); // description text inputted by user
     setDescription(event.target.value);
   };
 
   // handler for form submit, POST request to backend server
-  const saveWishlist = (event) => {
+  const wishlistFormSubmitHandler = (event) => {
     event.preventDefault(); // prevent the default re-rendering on form submits
 
     // wishlist object containing user-entered data
-    const wishlist = { title: title, description: description };
+    const newWishlist = { title: title, description: description };
 
-    // service class method (parameter object must be converted to JSON as defined in axios instance)
-    WishlistDataService.postWishlist(JSON.stringify(wishlist))
+    // service class method (parameter object must be converted to JSON string)
+    WishlistDataService.postWishlist(JSON.stringify(newWishlist))
       .then((res) => {
         console.log(res);
-        console.log("Successfully saved the new wishlist");
+        alert("New Wishlist was created!");
       })
       .catch((err) => console.log(err.message));
 
@@ -92,9 +92,12 @@ const WishlistForm = () => {
     <>
       <h3>Create A Wishlist</h3>
       <div className="wishlist-add-container">
-        <form onSubmit={saveWishlist} className="wishlist-form">
-          <WishlistTitle title={title} titleHandler={updateTitle} />
-          <WishlistDescription description={description} descriptionHandler={updateDescription} />
+        <form onSubmit={wishlistFormSubmitHandler} className="wishlist-form">
+          <WishlistTitle title={title} titleHandler={wishlistTitleHandler} />
+          <WishlistDescription
+            description={description}
+            descriptionHandler={wishlistDescriptionHandler}
+          />
           <SubmitButton />
         </form>
       </div>
