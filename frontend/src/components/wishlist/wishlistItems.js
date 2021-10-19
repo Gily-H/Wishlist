@@ -18,7 +18,7 @@ const Item = ({ name, description, price }) => {
     <tr className="item-row">
       <td>{name}</td>
       <td>{description}</td>
-      <td>${price}</td>
+      <td>{"$" + price}</td>
     </tr>
   );
 };
