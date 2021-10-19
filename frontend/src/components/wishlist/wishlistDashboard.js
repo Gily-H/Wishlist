@@ -10,9 +10,10 @@ import WishlistDataService from "../../services/wishlistService.js";
 
 // single wishlist component
 const Wishlist = ({ id, title, description }) => {
+  const linkToWishlist = `/wishlist/${id}/items`;
   return (
-    <a
-      href="#" // redirect to specific wishlist id page
+    <Link
+      to={linkToWishlist} // redirect to specific wishlist id page
       className="list-group-item list-group-item-action"
       aria-current="true">
       <div className="d-flex w-100 justify-content-between">
@@ -21,7 +22,7 @@ const Wishlist = ({ id, title, description }) => {
       <p className="mb-1">{description}</p>
       <small>And some small print.</small>
       <button>Delete</button>
-    </a>
+    </Link>
   );
 };
 
