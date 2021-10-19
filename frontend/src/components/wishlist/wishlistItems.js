@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import WishlistDataService from "../../services/wishlistService.js";
 import "../../styles/itemsTable.css";
 
@@ -70,6 +70,9 @@ const WishlistItems = () => {
       ) : (
         <ItemsTable items={wishlistItems} />
       )}
+      <Link to={`/wishlist/${wishlistId}/add-item`}>
+        <button>Add an item</button>
+      </Link>
     </>
   );
 };
