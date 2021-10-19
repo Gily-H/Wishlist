@@ -9,7 +9,8 @@ import "../../styles/wishlistForm.css";
 */
 
 // title input field component
-const WishlistTitle = ({ field, titleHandler }) => {
+// wishlist title is required
+const WishlistTitle = ({ title, titleHandler }) => {
   return (
     <label className="wishlist-add">
       Wishlist Name:
@@ -17,14 +18,15 @@ const WishlistTitle = ({ field, titleHandler }) => {
       <input
         className="wishlist-add-input"
         type="text"
-        value={field}
+        value={title}
         onChange={titleHandler}></input>
     </label>
   );
 };
 
 // description input area component
-const WishlistDescription = ({ field, descriptionHandler }) => {
+// wishlist description is required
+const WishlistDescription = ({ description, descriptionHandler }) => {
   return (
     <label className="wishlist-add">
       Wishlist Description:
@@ -32,7 +34,7 @@ const WishlistDescription = ({ field, descriptionHandler }) => {
         className="wishlist-add-input"
         rows="4"
         cols="40"
-        value={field}
+        value={description}
         onChange={descriptionHandler}></textarea>
     </label>
   );
@@ -91,8 +93,8 @@ const WishlistForm = () => {
       <h3>Create A Wishlist</h3>
       <div className="wishlist-add-container">
         <form onSubmit={saveWishlist} className="wishlist-form">
-          <WishlistTitle field={title} titleHandler={updateTitle} />
-          <WishlistDescription field={description} descriptionHandler={updateDescription} />
+          <WishlistTitle title={title} titleHandler={updateTitle} />
+          <WishlistDescription description={description} descriptionHandler={updateDescription} />
           <SubmitButton />
         </form>
       </div>
