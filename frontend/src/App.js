@@ -5,7 +5,7 @@ import { Switch, Route } from "react-router-dom";
 // components
 import Navbar from "./components/partials/navbar";
 import Footer from "./components//partials/footer";
-import Home from "./components/home";
+import Home from "./components/homepage/home";
 import Login from "./components/user/login";
 import Signup from "./components/user/signup";
 import WishlistItems from "./components/wishlist/wishlistItems";

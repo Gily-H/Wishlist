@@ -7,8 +7,8 @@ const Logo = () => {
     <a href="/" className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
+        width="32"
+        height="32"
         fill="orange"
         className="bi bi-stars"
         viewBox="0 0 16 16">
