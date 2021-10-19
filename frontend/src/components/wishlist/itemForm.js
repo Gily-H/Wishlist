@@ -1,4 +1,5 @@
 import React from "react";
+import "../../styles/itemForm.css";
 
 /*
   Web page with form to allow user to add new item to wishlist
@@ -11,7 +12,7 @@ import React from "react";
 // item name is required
 const ItemName = ({ name, nameHandler }) => {
   return (
-    <label>
+    <label className="new-item-detail">
       Item Name:
       <br />
       <input type="text" value={name} onChange={nameHandler} />
@@ -23,7 +24,7 @@ const ItemName = ({ name, nameHandler }) => {
 // if no value entered, will default to ""
 const ItemDescription = ({ description, descriptionHandler }) => {
   return (
-    <label>
+    <label className="new-item-detail">
       Item Description:
       <br />
       <textarea rows="4" cols="40" value={description} onChange={descriptionHandler} />
@@ -35,7 +36,7 @@ const ItemDescription = ({ description, descriptionHandler }) => {
 // if not value entered, will default to 0
 const ItemPrice = ({ price, priceHandler }) => {
   return (
-    <label>
+    <label className="new-item-detail">
       Item Price:
       <br />
       <input type="number" value={price} onChange={priceHandler} />
@@ -52,7 +53,7 @@ const ItemForm = () => {
   return (
     <>
       <h2>Create a new Item</h2>
-      <div>
+      <div className="item-form-container">
         <form action="POST">
           <ItemName />
           <ItemDescription />

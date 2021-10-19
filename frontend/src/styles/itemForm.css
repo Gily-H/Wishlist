@@ -1,0 +1,17 @@
+h2 {
+  text-align: center;
+}
+
+.item-form-container {
+  margin: auto;
+  max-width: 40%;
+}
+
+.new-item-detail {
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+}
