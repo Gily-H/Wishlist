@@ -17,18 +17,24 @@ class WishlistDataService {
     return api.get(`/${id}`);
   }
 
-  getWishlistItems(id) {
-    return api.get(`/${id}/items`);
-  }
-
   // post new wishlist
   postWishlist(wishlist) {
     return api.post("/add-wishlist", wishlist); // send wishlist in request body
   }
 
+  // get all items of Wishlist
+  getWishlistItems(id) {
+    return api.get(`/${id}/items`);
+  }
+
   // post new item
   postItem(id, item) {
-    return api.post(`/${id}/add-item`, item);
+    return api.post(`/${id}/items/add-item`, item);
+  }
+
+  // remove an item
+  deleteItem(wishlistId, itemId) {
+    return api.delete(`/${wishlistId}/items/remove-item/${itemId}`);
   }
 }
 

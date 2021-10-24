@@ -10,7 +10,7 @@ import Wishlist from "../models/wishlistModel.js";
 
 // method to retrieve Item list from specific Wishlist by Id
 const retrieveItemsList = (req, res) => {
-  // find the sepcified Wishlist with Id passed in reqest
+  // find the sepcified Wishlist with Id passed in request
   Wishlist.findById(req.params.wishlistId)
     .then((wishlist) => {
       // $in is a query selector, _id is a field in a mongoDB doc
@@ -24,34 +24,53 @@ const retrieveItemsList = (req, res) => {
     .catch((err) => console.log("error finding items from wishlist", err));
 };
 
-// method to save Item to db and associate Item to a specific wishlist
+// method to save Item to db and associate Item to a specific Wishlist
 const addItemToWishlist = (req, res) => {
-  // extract Item data from request body sent by wishlist form
+  // create new Item from data in request sent by Item form
   const newItem = new Item({
     name: req.body.name,
     description: req.body.description,
     price: req.body.price,
   });
 
-  // get specific wishlist using Id from URL param
+  // find specific Wishlist using Id from URL param
   Wishlist.findById(req.params.wishlistId)
     .then((wishlist) => {
-      wishlist.items.push(newItem._id); // append the new Item object_Id to the items array
-      wishlist.save(); // save the changes made
-      res.json("Successfully updated wishlist items");
+      wishlist.items.push(newItem._id); // append the new Item _id to the Wishlist's Item Id array
+      wishlist.save(); // update the Wishlist in the database with modification
+      console.log("Successfully updated wishlist items");
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log("error adding item to wishlist", err));
 
-  // save the new Item object to the database
+  // save the new Item to the database
   newItem
     .save()
-    .then(() => res.json("New item added!"))
+    .then(() => console.log("New item added!"))
     .catch((err) => res.status(400).json("Error: " + err));
 };
 
-// method to remove a specific item from a wishlist and remove from db
+// method to remove a specific Item from a Wishlist and from db
 const removeItemFromWishlist = (req, res) => {
-  // TODO
+  let wishlistId = req.params.wishlistId; // Id of wishlist containing Item to delete
+  let itemId = req.params.itemId; // Id of Item to delete
+
+  // find Wishlist by Id passed in req params
+  Wishlist.findById(wishlistId)
+    .then((wishlist) => {
+      let indexOfItemToDelete = wishlist.items.indexOf(itemId); // find index of Item to delete
+      wishlist.items.splice(indexOfItemToDelete, 1); // remove Item _id from Wishlist Items array
+      return wishlist.save(); // update Wishlist in db with modification
+    })
+    .then(() => console.log("successfully remove item from wishlist"))
+    .catch((err) => console.log("error removing item from wishlist", err));
+
+  // delete Item from db matching _id given as param
+  Item.deleteOne({ _id: `${itemId}` })
+    .then(() => {
+      res.send("sending response to deleting item to client");
+      console.log("send response to client");
+    })
+    .catch((err) => console.log("error deleting Item from databse", err));
 };
 
-export { addItemToWishlist, retrieveItemsList };
+export { addItemToWishlist, retrieveItemsList, removeItemFromWishlist };
