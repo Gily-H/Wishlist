@@ -8,6 +8,7 @@ import {
   retrieveAllWishlists,
   retrieveWishlistById,
   createNewWishlist,
+  deleteWishlist,
 } from "../controllers/wishlistController.js";
 
 const wishlistRouter = express.Router();
@@ -16,6 +17,7 @@ const wishlistRouter = express.Router();
 wishlistRouter.get("/", retrieveAllWishlists);
 wishlistRouter.get("/:wishlistId", retrieveWishlistById);
 wishlistRouter.post("/add-wishlist", createNewWishlist);
+wishlistRouter.delete("/:wishlistId/delete", deleteWishlist);
 
 // Item routes
 wishlistRouter.get("/:wishlistId/items", retrieveItemsList);

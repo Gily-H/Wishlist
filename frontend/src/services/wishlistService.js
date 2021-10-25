@@ -1,8 +1,8 @@
 import api from "../api/"; // uses the axios instance
 
 /*
-	Service class that contains all http requests related to wishlists 
-	and wishlist items
+	Service class that redirects requests related to Wishlists 
+	and Wishlist Items to the server
 */
 
 // corresponds to routes setup in the backend server
@@ -21,6 +21,13 @@ class WishlistDataService {
   postWishlist(wishlist) {
     return api.post("/add-wishlist", wishlist); // send wishlist in request body
   }
+
+  // remove a wishlist
+  deleteWishlist(id) {
+    return api.delete(`/${id}/delete`);
+  }
+
+  // ----------------
 
   // get all items of Wishlist
   getWishlistItems(id) {

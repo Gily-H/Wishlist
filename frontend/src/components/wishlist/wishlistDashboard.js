@@ -3,63 +3,77 @@ import { Link } from "react-router-dom";
 import WishlistDataService from "../../services/wishlistService.js";
 
 /*
-	Web page that displays a dashboard containing all wishlists created by the user
+	Web page displays dashboard containing all Wishlists created by user
 	- Wishlist dashboard
-	- Create wishlist button that redirects to wishlist form
+	- Create Wishlist button redirects to Wishlist form
 */
 
-// single wishlist component
-const Wishlist = ({ id, title, description }) => {
-  const linkToWishlist = `/wishlist/${id}/items`;
+// Wishlist info component
+// title, description, redirect, delete button
+const Wishlist = ({ wishlistId, title, description, deleteButtonHandler }) => {
   return (
-    <Link
-      to={linkToWishlist} // redirect to specific wishlist id page
-      className="list-group-item list-group-item-action"
-      aria-current="true">
-      <div className="d-flex w-100 justify-content-between">
-        <h5 className="mb-1">{title}</h5>
-      </div>
-      <p className="mb-1">{description}</p>
-      <small>And some small print.</small>
-      <button>Delete</button>
-    </Link>
+    <div>
+      <Link
+        to={`/wishlist/${wishlistId}/items`} // redirect to specific Wishlist items page
+        className="list-group-item list-group-item-action"
+        aria-current="true">
+        <div className="d-flex w-100 justify-content-between">
+          <h5 className="mb-1">{title}</h5>
+        </div>
+        <p className="mb-1">{description}</p>
+        <small>And some small print.</small>
+      </Link>
+      <button onClick={() => deleteButtonHandler(wishlistId)} style={{ display: "inline"}}>
+        Delete
+      </button>
+    </div>
   );
 };
 
-// preview wishlist entry component
-// maps each list to individual component
-const WishlistPreviews = ({ wishlists }) => {
-  // map each element in the collection to a separate wishlist
+// Wishlist info preview component
+// maps Wishlist collection to individual components
+const WishlistPreviews = ({ wishlists, deleteButtonHandler }) => {
   return (
     <>
       {wishlists.map((wishlist) => (
         <Wishlist
           key={wishlist._id}
-          id={wishlist._id}
+          wishlistId={wishlist._id}
           title={wishlist.title}
           description={wishlist.description}
+          deleteButtonHandler={deleteButtonHandler}
         />
       ))}
     </>
   );
 };
 
-// main display component
+// main dashboard display component
 // contains WishlistPreviews
 const WishlistDashboard = () => {
   const [wishlists, setWishlists] = useState([]);
 
-  // useEffect with no dependency prevents continuous rerendering when state changes
-  // will only run on the first render of the page (empty dependency)
+  // useEffect with empty dependency prevents continuous rerendering
+  // will only run on the first render of the page
   useEffect(() => {
-    // service class method to retrieve collection of wishlists from the database
+    // service class method to retrieve collection of Wishlists
     WishlistDataService.getWishlists()
       .then((res) => {
-        // console.log(res.data);
-        setWishlists(res.data); // response.data holds array of wishlists
+        setWishlists(res.data);
       })
       .catch((err) => console.log(err.message));
   }, []);
+
+  // Wishlist delete button handler
+  // service class method to delete single Wishlist
+  const deleteWishlistHandler = (wishlistId) => {
+    WishlistDataService.deleteWishlist(wishlistId)
+      .then(() => {
+        setWishlists(wishlists.filter((wishlist) => wishlist._id !== wishlistId)); // update dashboard after delete
+        console.log("wishlist being delete from the dashboard");
+      })
+      .catch((err) => console.log("failing to delete wishlist from dashboard", err));
+  };
 
   return (
     <div>
@@ -67,14 +81,14 @@ const WishlistDashboard = () => {
       <h4>This is where you can create new wish lists or view/edit saved wishlists</h4>
 
       <div id="add-wishlist-container">
-        <Link to={"/wishlist-add"}>
-          <button>Create new Wishlist</button>
+        <Link to={"/wishlist-add"} className="btn btn-primary">
+          Create new Wishlist
         </Link>
       </div>
 
       <div className="container">
         <div className="list-group">
-          <WishlistPreviews wishlists={wishlists} />
+          <WishlistPreviews wishlists={wishlists} deleteButtonHandler={deleteWishlistHandler} />
         </div>
       </div>
     </div>
