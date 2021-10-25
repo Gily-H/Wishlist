@@ -1,4 +1,5 @@
 import Wishlist from "../models/wishlistModel.js";
+import Item from "../models/itemModel.js";
 
 /*
 	controller class to handle incoming client-side requests relating to Wishlists
@@ -38,10 +39,20 @@ const createNewWishlist = (req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 };
 
-// method to delete single wishlist from collection in db
+// method to delete single Wishlist from collection in db
 const deleteWishlist = (req, res) => {
+  let wishlistId = req.params.wishlistId;
+
+  // find the Wishlist to delete and remove all associated Items
+  Wishlist.findById(wishlistId)
+    .then((wishlist) => {
+      return Item.deleteMany({ _id: { $in: wishlist.items } }); // delete all Items with matching _ids
+    })
+    .then(() => console.log("successfully removed items from deleted wishlist"))
+    .catch((err) => console.log("trouble deleting items from deleted wishlist", err));
+
   // delete Wishlist with matching _id
-  Wishlist.deleteOne({ _id: `${req.params.wishlistId}` })
+  Wishlist.deleteOne({ _id: `${wishlistId}` })
     .then(() => res.send("sending response to client to delete a Wishlist"))
     .catch((err) => console.log("error deleting wishlist", err));
 };
